@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="title: ��������tags:  Testing Another Tag">
+<meta name="description" content="其实开博也有差不多一个多月了，今天才算刚刚从北京这个炼狱里面出来，能有那么一丝喘气的机会好好享受大学最后那丁点丁点的时光。在这两个月里面集中项目开发时间里面，虽然一天工作16小时，但更多的时间都被shell这个魔咒给消耗了大部分的时间。有人说，每次写shell，都让自己感觉像是个傻逼程序员一样。为此我将在下面总结一下在写shell脚本的时候自己常用的几个知识点以及小技巧。仅供参考，我自己参考。。。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://yoursite.com/2017/10/11/test/index.html">
+<meta property="og:title" content="Alerta&#39;s保鲜盒">
+<meta property="og:url" content="http://yoursite.com/2017/10/11/初探shell的神秘力量/index.html">
 <meta property="og:site_name" content="Alerta&#39;s保鲜盒">
-<meta property="og:description" content="title: ��������tags:  Testing Another Tag">
+<meta property="og:description" content="其实开博也有差不多一个多月了，今天才算刚刚从北京这个炼狱里面出来，能有那么一丝喘气的机会好好享受大学最后那丁点丁点的时光。在这两个月里面集中项目开发时间里面，虽然一天工作16小时，但更多的时间都被shell这个魔咒给消耗了大部分的时间。有人说，每次写shell，都让自己感觉像是个傻逼程序员一样。为此我将在下面总结一下在写shell脚本的时候自己常用的几个知识点以及小技巧。仅供参考，我自己参考。。。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-11T07:04:43.043Z">
+<meta property="og:updated_time" content="2017-05-22T01:43:59.794Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="test">
-<meta name="twitter:description" content="title: ��������tags:  Testing Another Tag">
+<meta name="twitter:title" content="Alerta&#39;s保鲜盒">
+<meta name="twitter:description" content="其实开博也有差不多一个多月了，今天才算刚刚从北京这个炼狱里面出来，能有那么一丝喘气的机会好好享受大学最后那丁点丁点的时光。在这两个月里面集中项目开发时间里面，虽然一天工作16小时，但更多的时间都被shell这个魔咒给消耗了大部分的时间。有人说，每次写shell，都让自己感觉像是个傻逼程序员一样。为此我将在下面总结一下在写shell脚本的时候自己常用的几个知识点以及小技巧。仅供参考，我自己参考。。。">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/11/test/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/11/初探shell的神秘力量/"/>
 
 
 
 
 
-  <title>test | Alerta's保鲜盒</title>
+  <title> | Alerta's保鲜盒</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/11/test/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/11/初探shell的神秘力量/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张雄锋">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">test</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -281,7 +281,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-11T14:46:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-11T15:19:53+08:00">
                 2017-10-11
               </time>
             
@@ -319,12 +319,34 @@
       
 
       
-        <p>title: ��������<br>tags:</p>
-<ul>
-<li>Testing</li>
-<li>Another Tag</li>
-</ul>
-<hr>
+        <p>其实开博也有差不多一个多月了，今天才算刚刚从北京这个炼狱里面出来，能有那么一丝喘气的机会好好享受大学最后那丁点丁点的时光。在这两个月里面集中项目开发时间里面，虽然一天工作16小时，但更多的时间都被shell这个魔咒给消耗了大部分的时间。有人说，每次写shell，都让自己感觉像是个傻逼程序员一样。为此我将在下面总结一下在写shell脚本的时候自己常用的几个知识点以及小技巧。仅供参考，我自己参考。。。</p>
+<h3 id="1-shell的for基本循环"><a href="#1-shell的for基本循环" class="headerlink" title="1.shell的for基本循环"></a>1.shell的for基本循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for i in $( seq 1 4)</div><div class="line">do</div><div class="line">	echo “准备打印：” $i</div><div class="line">done</div></pre></td></tr></table></figure>
+<p>打印：1 2 3 4 </p>
+<h3 id="2-shell的for遍历数组循环"><a href="#2-shell的for遍历数组循环" class="headerlink" title="2.shell的for遍历数组循环"></a>2.shell的for遍历数组循环</h3><p>部分引用来自：<a href="https://www.coder4.com/archives/3853" target="_blank" rel="external">https://www.coder4.com/archives/3853</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">arr=(1 2 3 4 5) # shell定义数字，用空格隔开</div><div class="line"></div><div class="line">echo $&#123;#array[@]&#125; #打印数组长度</div><div class="line"></div><div class="line">for var in $&#123; arr[@] &#125;;#遍历数组各个元素并开始打印</div><div class="line">do</div><div class="line">    echo $var</div><div class="line">done</div><div class="line"></div><div class="line">for i in &quot;$&#123;!arr[@]&#125;&quot;;#打印数组元素（带数组下标）</div><div class="line">do </div><div class="line">    printf &quot;%s\t%s\n&quot; &quot;$i&quot; &quot;$&#123;arr[$i]&#125;&quot;</div><div class="line">done</div></pre></td></tr></table></figure>
+<p>例子：当前目录中数组各个文件名及其绝对路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for i in $&#123;dirName[@]&#125; #dirName为当前目录文件名</div><div class="line">do</div><div class="line">	echo &quot;此时正遍历该文件：&quot; $&#123;PWD&#125;&quot;/&quot;$&#123;i&#125;</div><div class="line">	cd $&#123;PWD&#125;&quot;/&quot;$&#123;i&#125;</div><div class="line">done</div></pre></td></tr></table></figure>
+<h3 id="3-遍历当前目录下的文件名"><a href="#3-遍历当前目录下的文件名" class="headerlink" title="3.遍历当前目录下的文件名"></a>3.遍历当前目录下的文件名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for i in `ls`</div><div class="line">		do</div><div class="line">			printf $&#123;i%%.*&#125; ##去掉第一个&quot;.&quot;右边的所有元素</div><div class="line">		done</div></pre></td></tr></table></figure>
+<p>打印：当前目录下的各个文件名（去掉文件后缀）</p>
+<h3 id="4-字符串替换（这是我看过最好记的字符串教学）"><a href="#4-字符串替换（这是我看过最好记的字符串教学）" class="headerlink" title="4.字符串替换（这是我看过最好记的字符串教学）"></a>4.字符串替换（这是我看过最好记的字符串教学）</h3><p>引用来自：<br><a href="http://bbs.chinaunix.net/viewthread.php?tid=218853&amp;extra=&amp;page=7#pid1628522" target="_blank" rel="external">http://bbs.chinaunix.net/viewthread.php?tid=218853&amp;extra=&amp;page=7#pid1628522</a></p>
+<p>首先定义：file=/dir1/dir2/dir3/my.file.txt</p>
+<p>我們可以用 ${ } 分別替換獲得不同的值：</p>
+<p>${file#*/}：拿掉第一條 / 及其左邊的字串：dir1/dir2/dir3/my.file.txt</p>
+<p>${file##*/}：拿掉最後一條 / 及其左邊的字串：my.file.txt</p>
+<p>${file#*.}：拿掉第一個 . 及其左邊的字串：file.txt</p>
+<p>${file##*.}：拿掉最後一個 . 及其左邊的字串：txt</p>
+<p>${file%/*}：拿掉最後條 / 及其右邊的字串：/dir1/dir2/dir3</p>
+<p>${file%%/*}：拿掉第一條 / 及其右邊的字串：(空值)</p>
+<p>${file%.*}：拿掉最後一個 . 及其右邊的字串：/dir1/dir2/dir3/my.file</p>
+<p>${file%%.*}：拿掉第一個 . 及其右邊的字串：/dir1/dir2/dir3/my</p>
+<p>記憶的方法為：</p>
+<p>“#” 是去掉左邊(在鑑盤上 # 在 $ 之左邊)</p>
+<p>“%” 是去掉右邊(在鑑盤上 % 在 $ 之右邊)</p>
+<p>單一符號是最小匹配﹔兩個符號是最大匹配。</p>
+<h3 id="5-判断语句常见错误"><a href="#5-判断语句常见错误" class="headerlink" title="5.判断语句常见错误"></a>5.判断语句常见错误</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">错误示范：</div><div class="line">if [ $str == 0000 ]</div><div class="line">	then</div><div class="line">		echo &quot;DONE 0000&quot;</div><div class="line">	    mv $filename 2.MOV</div><div class="line">	fi</div></pre></td></tr></table></figure>
+<p>在进行上述字符串判断语句的时候，虽然程序运行正常，该判断的还是会判断，但脚本会出现如下报错：”[: =: unary operator expected”</p>
+<p>强迫症的我真的忍不了，后来查明原因，在进行变量判断的时候，如果str为空，就变成了“[ == 0000”，这样不仅不相等且少了一个”[“，因此会出现上述报错。在例子中由于我的str没有空的情况，故能正常执行。但为了程序严谨，正确代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">正确示范：</div><div class="line">if [[ $str == 0000 ]]</div><div class="line">	then</div><div class="line">		echo &quot;DONE 0000&quot;</div><div class="line">	    mv $filename 2.MOV</div><div class="line">	fi</div></pre></td></tr></table></figure></p>
+<p>本系列将不定期更新。港真，shell脚本值得每个程序员花时间去学习，本人学疏才浅，但在这两个月里断断续续开发的几个脚本里已经慢慢感受到其简单语句里隐藏的无穷力量。</p>
 
       
     </div>
@@ -349,8 +371,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/10/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/10/11/用cx-Freeze打包32位python的.exe文件/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
