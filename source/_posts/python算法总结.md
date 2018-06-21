@@ -3,8 +3,6 @@ title: python算法总结
 date: 2018-06-22 00:11:05
 tags:
 categories: 
--	算法
-tags:
 -	Python
 -   算法
 ---
