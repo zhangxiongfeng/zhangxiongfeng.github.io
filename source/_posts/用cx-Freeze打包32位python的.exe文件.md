@@ -2,6 +2,7 @@
 title: 用cx-Freeze打包32位python的.exe文件
 date: 2017-10-11 15:34:37
 tags:
+cover_img: https://i.loli.net/2018/06/30/5b36597aac617.jpg
 categories: Python
 ---
 

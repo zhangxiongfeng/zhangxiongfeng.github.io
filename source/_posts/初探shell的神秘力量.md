@@ -2,6 +2,7 @@
 title: 初探shell的神秘力量
 date: 2017-05-03 15:31:37
 tags:
+cover_img: https://i.loli.net/2018/06/30/5b36596186b93.jpg
 categories: shell
 ---
 

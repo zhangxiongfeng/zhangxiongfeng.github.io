@@ -2,6 +2,7 @@
 title: python算法总结
 date: 2018-06-22 00:11:05
 tags:
+cover_img: https://i.loli.net/2018/06/30/5b365a263a8a0.jpg
 categories: 
 -	Python
 -   算法

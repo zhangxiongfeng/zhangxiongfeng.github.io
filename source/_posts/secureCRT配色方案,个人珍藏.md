@@ -4,6 +4,7 @@ title: secureCRT配色方案,个人珍藏
 date: 2017-9-14 18:09:25
 tags:
 categories: Linux
+cover_img: https://i.loli.net/2018/06/30/5b365c248a9d8.jpg   
 ---
 第一次接触secureCRT的时候实在被其默认颜色方案亮瞎了狗眼,实在不能忍,在上网查了查相关的配色方案再结合了自己平时在gvim里面的配色爱好终于算是能看了,保存一下以后备忘吧.
 
