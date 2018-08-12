@@ -1,5 +1,5 @@
 ---
-title: You got a dream,you gotta protect it. People can't do something themselves,they wanna tell you you can't do it. If you want something,go get it!
+title: If you want something, go get it!
 date: 2017-10-11 14:55:48
 ---
 
@@ -44,8 +44,9 @@ date: 2017-10-11 14:55:48
 
 
 ### Find Me
-- WeChat: <img src="https://i.loli.net/2018/08/03/5b6477d1b199a.jpg">
 - Email：wb_zhangxiongfeng@163.com
+- WeChat: <img src="https://i.loli.net/2018/08/03/5b6477d1b199a.jpg">
+
 
 
     
