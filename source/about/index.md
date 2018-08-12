@@ -2,3 +2,50 @@
 title: You got a dream,you gotta protect it. People can't do something themselves,they wanna tell you you can't do it. If you want something,go get it!
 date: 2017-10-11 14:55:48
 ---
+
+### 枫
+17年毕业于华南农业大学，Python开发工程师。
+
+
+### 工作经历
+
+1. 网易游戏 - 测试工程师（2016.12 - 2018.05）
+    
+    毕业时有幸第一个offer就是网易游戏,当时同时也有一个网页前端的offer以及一个前端终面, 纠结的地方就是网易游戏提供的职位是一个测试而已。后面一年的工作里面，很感谢我的主管们（神奇、妹总、），一直让我做我想做的事。所以在网易游戏虽然是真的累，除了平时的测试工作，还负责组内检查工具，测试指令的开发。
+    
+    但说真的，在网易游戏里面非常规范的工作流程以及超级无敌好的工作氛围，包括同事和环境。这些都是我终身受益的宝藏。
+
+    后面离开是因为想尝试全身心投入生产线上的开发。
+    
+    （先记着，这段让我最不舍的一段工作经历）
+
+
+1. 大象健康科技 - Python/Qt开发工程师 （2018.05 - ） 
+    
+    2018.05-2018.07
+        
+    这两个月开发了无人健身房的两个AR项目，单人AR以及多人AR。（保密阶段，不放图了）
+    
+    主要攻破的难题还是在机器学习的模型建立以及opencv的图像处理上。
+
+    同事的氛围，emmm还好吧。工作流程比上一家公司松散，已经按照当前公司情况，结合上一家公司的工作流程提出了一点建议（只想好好敲代码，除非忍不住）
+    
+        
+### 技能
+- Language：Python、JavaScript、C\C++
+- Web开发: python-Django、JQuery、Bootstrap
+- 爬虫：Scipy
+- 数据库：MySQL
+- 版本管理：SVN、Git
+
+### 学习状态（2018.08.02）
+- 算法：[LeetCode](https://leetcode-cn.com/alerta/)
+- 正在接触机器学习
+
+
+### Find Me
+- WeChat: <img src="https://i.loli.net/2018/08/03/5b6477d1b199a.jpg">
+- Email：wb_zhangxiongfeng@163.com
+
+
+    

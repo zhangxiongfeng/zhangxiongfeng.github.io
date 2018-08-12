@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 枫叶
+title: 枫
 subtitle:
-description: If you want something,go get it!
-author: 张雄锋
+description: 遥不可及的你
+author: 
 language: zh-CN
 timezone:
 
@@ -84,4 +84,4 @@ deploy:
 # 将头像放置主题目录下的 source/uploads/ （新建uploads目录若不存在） 配置为：
 #avatar: /uploads/avatar.png
 # 放置在 source/images/ 目录下, 配置为：
-avatar: /images/avatar.jpg
+avatar: /uploads/avatar.png
