@@ -108,17 +108,19 @@
 
 
 
-  <meta name="description" content="其实开博也有差不多一个多月了，今天才算刚刚从北京这个炼狱里面出来，能有那么一丝喘气的机会好好享受大学最后那丁点丁点的时光。在这两个月里面集中项目开发时间里面，虽然一天工作16小时，但更多的时间都被shell这个魔咒给消耗了大部分的时间。有人说，每次写shell，都让自己感觉像是个傻逼程序员一样。为此我将在下面总结一下在写shell脚本的时候自己常用的几个知识点以及小技巧。仅供参考，我自己参考。。。">
+  <meta name="description" content="总结一下神奇的shell语法，老是忘记系列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初探shell的神秘力量">
 <meta property="og:url" content="http://yoursite.com/2017/05/03/初探shell的神秘力量/index.html">
 <meta property="og:site_name" content="枫">
-<meta property="og:description" content="其实开博也有差不多一个多月了，今天才算刚刚从北京这个炼狱里面出来，能有那么一丝喘气的机会好好享受大学最后那丁点丁点的时光。在这两个月里面集中项目开发时间里面，虽然一天工作16小时，但更多的时间都被shell这个魔咒给消耗了大部分的时间。有人说，每次写shell，都让自己感觉像是个傻逼程序员一样。为此我将在下面总结一下在写shell脚本的时候自己常用的几个知识点以及小技巧。仅供参考，我自己参考。。。">
+<meta property="og:description" content="总结一下神奇的shell语法，老是忘记系列">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-12T09:16:06.899Z">
+<meta property="og:image" content="http://yoursite.com/2017/05/03/初探shell的神秘力量/soragrit-wongsa-599087-unsplash.jpg">
+<meta property="og:updated_time" content="2018-09-07T13:46:13.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初探shell的神秘力量">
-<meta name="twitter:description" content="其实开博也有差不多一个多月了，今天才算刚刚从北京这个炼狱里面出来，能有那么一丝喘气的机会好好享受大学最后那丁点丁点的时光。在这两个月里面集中项目开发时间里面，虽然一天工作16小时，但更多的时间都被shell这个魔咒给消耗了大部分的时间。有人说，每次写shell，都让自己感觉像是个傻逼程序员一样。为此我将在下面总结一下在写shell脚本的时候自己常用的几个知识点以及小技巧。仅供参考，我自己参考。。。">
+<meta name="twitter:description" content="总结一下神奇的shell语法，老是忘记系列">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/03/初探shell的神秘力量/soragrit-wongsa-599087-unsplash.jpg">
 
 
 
@@ -374,7 +376,10 @@
       
 
       
-        <p>其实开博也有差不多一个多月了，今天才算刚刚从北京这个炼狱里面出来，能有那么一丝喘气的机会好好享受大学最后那丁点丁点的时光。在这两个月里面集中项目开发时间里面，虽然一天工作16小时，但更多的时间都被shell这个魔咒给消耗了大部分的时间。有人说，每次写shell，都让自己感觉像是个傻逼程序员一样。为此我将在下面总结一下在写shell脚本的时候自己常用的几个知识点以及小技巧。仅供参考，我自己参考。。。</p>
+        <img src="/2017/05/03/初探shell的神秘力量/soragrit-wongsa-599087-unsplash.jpg">
+<p>总结一下神奇的shell语法，老是忘记系列</p>
+<a id="more"></a>
+<p>其实开博也有差不多一个多月了，今天才算刚刚从北京这个炼狱里面出来，能有那么一丝喘气的机会好好享受大学最后那丁点丁点的时光。在这两个月里面集中项目开发时间里面，虽然一天工作16小时，但更多的时间都被shell这个魔咒给消耗了大部分的时间。有人说，每次写shell，都让自己感觉像是个傻逼程序员一样。为此我将在下面总结一下在写shell脚本的时候自己常用的几个知识点以及小技巧。仅供参考，我自己参考。。。</p>
 <h3 id="1-shell的for基本循环"><a href="#1-shell的for基本循环" class="headerlink" title="1.shell的for基本循环"></a>1.shell的for基本循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for i in $( seq 1 4)</span><br><span class="line">do</span><br><span class="line">	echo “准备打印：” $i</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 <p>打印：1 2 3 4 </p>
 <h3 id="2-shell的for遍历数组循环"><a href="#2-shell的for遍历数组循环" class="headerlink" title="2.shell的for遍历数组循环"></a>2.shell的for遍历数组循环</h3><p>部分引用来自：<a href="https://www.coder4.com/archives/3853" target="_blank" rel="noopener">https://www.coder4.com/archives/3853</a></p>
