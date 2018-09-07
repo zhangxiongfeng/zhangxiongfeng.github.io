@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="其实开博也有差不多一个多月了，今天才算刚刚从北京这个炼狱里面出来，能有那么一丝喘气的机会好好享受大学最后那丁点丁点的时光。在这两个月里面集中项目开发时间里面，虽然一天工作16小时，但更多的时间都被shell这个魔咒给消耗了大部分的时间。有人说，每次写shell，都让自己感觉像是个傻逼程序员一样。为此我将在下面总结一下在写shell脚本的时候自己常用的几个知识点以及小技巧。仅供参考，我自己参考。。。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初探shell的神秘力量">
+<meta property="og:url" content="http://yoursite.com/2017/05/03/初探shell的神秘力量/index.html">
+<meta property="og:site_name" content="枫">
+<meta property="og:description" content="其实开博也有差不多一个多月了，今天才算刚刚从北京这个炼狱里面出来，能有那么一丝喘气的机会好好享受大学最后那丁点丁点的时光。在这两个月里面集中项目开发时间里面，虽然一天工作16小时，但更多的时间都被shell这个魔咒给消耗了大部分的时间。有人说，每次写shell，都让自己感觉像是个傻逼程序员一样。为此我将在下面总结一下在写shell脚本的时候自己常用的几个知识点以及小技巧。仅供参考，我自己参考。。。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-12T09:16:06.899Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初探shell的神秘力量">
+<meta name="twitter:description" content="其实开博也有差不多一个多月了，今天才算刚刚从北京这个炼狱里面出来，能有那么一丝喘气的机会好好享受大学最后那丁点丁点的时光。在这两个月里面集中项目开发时间里面，虽然一天工作16小时，但更多的时间都被shell这个魔咒给消耗了大部分的时间。有人说，每次写shell，都让自己感觉像是个傻逼程序员一样。为此我将在下面总结一下在写shell脚本的时候自己常用的几个知识点以及小技巧。仅供参考，我自己参考。。。">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/03/初探shell的神秘力量/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>初探shell的神秘力量 | 枫</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">枫</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/03/初探shell的神秘力量/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="遥不可及的你">
+      <meta itemprop="image" content="/uploads/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">初探shell的神秘力量
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-05-03 15:31:37" itemprop="dateCreated datePublished" datetime="2017-05-03T15:31:37+08:00">2017-05-03</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/shell/" itemprop="url" rel="index"><span itemprop="name">shell</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>其实开博也有差不多一个多月了，今天才算刚刚从北京这个炼狱里面出来，能有那么一丝喘气的机会好好享受大学最后那丁点丁点的时光。在这两个月里面集中项目开发时间里面，虽然一天工作16小时，但更多的时间都被shell这个魔咒给消耗了大部分的时间。有人说，每次写shell，都让自己感觉像是个傻逼程序员一样。为此我将在下面总结一下在写shell脚本的时候自己常用的几个知识点以及小技巧。仅供参考，我自己参考。。。</p>
+<h3 id="1-shell的for基本循环"><a href="#1-shell的for基本循环" class="headerlink" title="1.shell的for基本循环"></a>1.shell的for基本循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for i in $( seq 1 4)</span><br><span class="line">do</span><br><span class="line">	echo “准备打印：” $i</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<p>打印：1 2 3 4 </p>
+<h3 id="2-shell的for遍历数组循环"><a href="#2-shell的for遍历数组循环" class="headerlink" title="2.shell的for遍历数组循环"></a>2.shell的for遍历数组循环</h3><p>部分引用来自：<a href="https://www.coder4.com/archives/3853" target="_blank" rel="noopener">https://www.coder4.com/archives/3853</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">arr=(1 2 3 4 5) # shell定义数字，用空格隔开</span><br><span class="line"></span><br><span class="line">echo $&#123;#array[@]&#125; #打印数组长度</span><br><span class="line"></span><br><span class="line">for var in $&#123; arr[@] &#125;;#遍历数组各个元素并开始打印</span><br><span class="line">do</span><br><span class="line">    echo $var</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">for i in &quot;$&#123;!arr[@]&#125;&quot;;#打印数组元素（带数组下标）</span><br><span class="line">do </span><br><span class="line">    printf &quot;%s\t%s\n&quot; &quot;$i&quot; &quot;$&#123;arr[$i]&#125;&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<p>例子：当前目录中数组各个文件名及其绝对路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for i in $&#123;dirName[@]&#125; #dirName为当前目录文件名</span><br><span class="line">do</span><br><span class="line">	echo &quot;此时正遍历该文件：&quot; $&#123;PWD&#125;&quot;/&quot;$&#123;i&#125;</span><br><span class="line">	cd $&#123;PWD&#125;&quot;/&quot;$&#123;i&#125;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h3 id="3-遍历当前目录下的文件名"><a href="#3-遍历当前目录下的文件名" class="headerlink" title="3.遍历当前目录下的文件名"></a>3.遍历当前目录下的文件名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for i in `ls`</span><br><span class="line">		do</span><br><span class="line">			printf $&#123;i%%.*&#125; ##去掉第一个&quot;.&quot;右边的所有元素</span><br><span class="line">		done</span><br></pre></td></tr></table></figure>
+<p>打印：当前目录下的各个文件名（去掉文件后缀）</p>
+<h3 id="4-字符串替换（这是我看过最好记的字符串教学）"><a href="#4-字符串替换（这是我看过最好记的字符串教学）" class="headerlink" title="4.字符串替换（这是我看过最好记的字符串教学）"></a>4.字符串替换（这是我看过最好记的字符串教学）</h3><p>引用来自：<br><a href="http://bbs.chinaunix.net/viewthread.php?tid=218853&amp;extra=&amp;page=7#pid1628522" target="_blank" rel="noopener">http://bbs.chinaunix.net/viewthread.php?tid=218853&amp;extra=&amp;page=7#pid1628522</a></p>
+<p>首先定义：file=/dir1/dir2/dir3/my.file.txt</p>
+<p>我們可以用 ${ } 分別替換獲得不同的值：</p>
+<p>${file#*/}：拿掉第一條 / 及其左邊的字串：dir1/dir2/dir3/my.file.txt</p>
+<p>${file##*/}：拿掉最後一條 / 及其左邊的字串：my.file.txt</p>
+<p>${file#*.}：拿掉第一個 . 及其左邊的字串：file.txt</p>
+<p>${file##*.}：拿掉最後一個 . 及其左邊的字串：txt</p>
+<p>${file%/*}：拿掉最後條 / 及其右邊的字串：/dir1/dir2/dir3</p>
+<p>${file%%/*}：拿掉第一條 / 及其右邊的字串：(空值)</p>
+<p>${file%.*}：拿掉最後一個 . 及其右邊的字串：/dir1/dir2/dir3/my.file</p>
+<p>${file%%.*}：拿掉第一個 . 及其右邊的字串：/dir1/dir2/dir3/my</p>
+<p>記憶的方法為：</p>
+<p>“#” 是去掉左邊(在鑑盤上 # 在 $ 之左邊)</p>
+<p>“%” 是去掉右邊(在鑑盤上 % 在 $ 之右邊)</p>
+<p>單一符號是最小匹配﹔兩個符號是最大匹配。</p>
+<h3 id="5-判断语句常见错误"><a href="#5-判断语句常见错误" class="headerlink" title="5.判断语句常见错误"></a>5.判断语句常见错误</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">错误示范：</span><br><span class="line">if [ $str == 0000 ]</span><br><span class="line">	then</span><br><span class="line">		echo &quot;DONE 0000&quot;</span><br><span class="line">	    mv $filename 2.MOV</span><br><span class="line">	fi</span><br></pre></td></tr></table></figure>
+<p>在进行上述字符串判断语句的时候，虽然程序运行正常，该判断的还是会判断，但脚本会出现如下报错：”[: =: unary operator expected”</p>
+<p>强迫症的我真的忍不了，后来查明原因，在进行变量判断的时候，如果str为空，就变成了“[ == 0000”，这样不仅不相等且少了一个”[“，因此会出现上述报错。在例子中由于我的str没有空的情况，故能正常执行。但为了程序严谨，正确代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">正确示范：</span><br><span class="line">if [[ $str == 0000 ]]</span><br><span class="line">	then</span><br><span class="line">		echo &quot;DONE 0000&quot;</span><br><span class="line">	    mv $filename 2.MOV</span><br><span class="line">	fi</span><br></pre></td></tr></table></figure></p>
+<p>本系列将不定期更新。港真，shell脚本值得每个程序员花时间去学习，本人学疏才浅，但在这两个月里断断续续开发的几个脚本里已经慢慢感受到其简单语句里隐藏的无穷力量。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/02/ZCAM视频整理以及参数计算和调整/" rel="next" title="ZCAM视频整理以及参数计算和调整">
+                <i class="fa fa-chevron-left"></i> ZCAM视频整理以及参数计算和调整
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/14/secureCRT配色方案,个人珍藏/" rel="prev" title="secureCRT配色方案,个人珍藏">
+                secureCRT配色方案,个人珍藏 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.gif"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description">遥不可及的你</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/zhangxiongfeng" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:wb_zhangxiongfeng@163.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-align-justify"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-shell的for基本循环"><span class="nav-number">1.</span> <span class="nav-text">1.shell的for基本循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-shell的for遍历数组循环"><span class="nav-number">2.</span> <span class="nav-text">2.shell的for遍历数组循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-遍历当前目录下的文件名"><span class="nav-number">3.</span> <span class="nav-text">3.遍历当前目录下的文件名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-字符串替换（这是我看过最好记的字符串教学）"><span class="nav-number">4.</span> <span class="nav-text">4.字符串替换（这是我看过最好记的字符串教学）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-判断语句常见错误"><span class="nav-number">5.</span> <span class="nav-text">5.判断语句常见错误</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart-square"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
