@@ -108,24 +108,26 @@
 
 
 
-  <meta name="description" content="1. 题号：657判断是否回到原点我的代码里面是通过累加的方式计算最后的综合坐标是否为原点， 12345678910111213141516x = 0y = 0for i in moves:    if i == &amp;quot;U&amp;quot;:        y += 1    elif i == &amp;quot;D&amp;quot;:        y -= 1    elif i == &amp;quot;L&amp;q">
+  <meta name="description" content="双指针法的经典运用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python算法总结">
-<meta property="og:url" content="http://yoursite.com/2018/06/22/python算法总结/index.html">
+<meta property="og:title" content="Leetcode-675-判断是否回到原点">
+<meta property="og:url" content="http://yoursite.com/2018/06/22/Leetcode-675-判断是否回到原点/index.html">
 <meta property="og:site_name" content="枫">
-<meta property="og:description" content="1. 题号：657判断是否回到原点我的代码里面是通过累加的方式计算最后的综合坐标是否为原点， 12345678910111213141516x = 0y = 0for i in moves:    if i == &amp;quot;U&amp;quot;:        y += 1    elif i == &amp;quot;D&amp;quot;:        y -= 1    elif i == &amp;quot;L&amp;q">
+<meta property="og:description" content="双指针法的经典运用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-12T09:16:06.890Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/22/Leetcode-675-判断是否回到原点/jake-oates-254173-unsplash.jpg">
+<meta property="og:updated_time" content="2018-09-07T13:58:19.866Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python算法总结">
-<meta name="twitter:description" content="1. 题号：657判断是否回到原点我的代码里面是通过累加的方式计算最后的综合坐标是否为原点， 12345678910111213141516x = 0y = 0for i in moves:    if i == &amp;quot;U&amp;quot;:        y += 1    elif i == &amp;quot;D&amp;quot;:        y -= 1    elif i == &amp;quot;L&amp;q">
+<meta name="twitter:title" content="Leetcode-675-判断是否回到原点">
+<meta name="twitter:description" content="双指针法的经典运用">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/22/Leetcode-675-判断是否回到原点/jake-oates-254173-unsplash.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/22/python算法总结/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/22/Leetcode-675-判断是否回到原点/"/>
 
 
 
@@ -135,7 +137,7 @@
   };
 </script>
 
-  <title>python算法总结 | 枫</title>
+  <title>Leetcode-675-判断是否回到原点 | 枫</title>
   
 
 
@@ -280,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/22/python算法总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/22/Leetcode-675-判断是否回到原点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -297,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python算法总结
+          <h1 class="post-title" itemprop="name headline">Leetcode-675-判断是否回到原点
               
             
           </h1>
@@ -381,7 +383,10 @@
       
 
       
-        <h2 id="1-题号：657判断是否回到原点"><a href="#1-题号：657判断是否回到原点" class="headerlink" title="1. 题号：657判断是否回到原点"></a>1. 题号：657判断是否回到原点</h2><p>我的代码里面是通过累加的方式计算最后的综合坐标是否为原点，</p>
+          <img src="/2018/06/22/Leetcode-675-判断是否回到原点/jake-oates-254173-unsplash.jpg">
+<p>双指针法的经典运用</p>
+<a id="more"></a>
+<p>我的代码里面是通过累加的方式计算最后的综合坐标是否为原点，</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">x = 0</span><br><span class="line">y = 0</span><br><span class="line"></span><br><span class="line">for i in moves:</span><br><span class="line">    if i == &quot;U&quot;:</span><br><span class="line">        y += 1</span><br><span class="line">    elif i == &quot;D&quot;:</span><br><span class="line">        y -= 1</span><br><span class="line">    elif i == &quot;L&quot;:</span><br><span class="line">        x -= 1</span><br><span class="line">    elif i == &quot;R&quot;:</span><br><span class="line">        x += 1</span><br><span class="line">if x==0 and y==0:</span><br><span class="line">    return True</span><br><span class="line">else:</span><br><span class="line">    return False</span><br></pre></td></tr></table></figure>
 <p>但其实可以直接判断字符串的个数是否抵消即可，这样就省了个中间变量的创建以及计算</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return moves.count(&apos;L&apos;) == moves.count(&apos;R&apos;) and moves.count(&apos;U&apos;) == moves.count(&apos;D&apos;)</span><br></pre></td></tr></table></figure>
@@ -472,17 +477,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -570,22 +566,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-题号：657判断是否回到原点"><span class="nav-number">1.</span> <span class="nav-text">1. 题号：657判断是否回到原点</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
