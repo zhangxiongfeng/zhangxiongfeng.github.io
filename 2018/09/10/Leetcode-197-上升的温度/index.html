@@ -108,26 +108,26 @@
 
 
 
-  <meta name="description" content="利用转置+反转来实现顺时针旋转功能，emmm真有趣">
+  <meta name="description" content="解答： 123select a.Id from Weather a , Weather bwhere DATEDIFF(a.RecordDate, b.RecordDate) = 1 AND a.Temperature &amp;gt; b.Temperature 这一题主要考察了MySQL的高级内建函数： 简单总结一下MySQL Date函数 NOW() - 返回当前日期和时间 CURDATE ()">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode-48-旋转图像">
-<meta property="og:url" content="http://yoursite.com/2018/09/07/Leetcode-48-旋转图像/index.html">
+<meta property="og:title" content="Leetcode-197-上升的温度">
+<meta property="og:url" content="http://yoursite.com/2018/09/10/Leetcode-197-上升的温度/index.html">
 <meta property="og:site_name" content="枫">
-<meta property="og:description" content="利用转置+反转来实现顺时针旋转功能，emmm真有趣">
+<meta property="og:description" content="解答： 123select a.Id from Weather a , Weather bwhere DATEDIFF(a.RecordDate, b.RecordDate) = 1 AND a.Temperature &amp;gt; b.Temperature 这一题主要考察了MySQL的高级内建函数： 简单总结一下MySQL Date函数 NOW() - 返回当前日期和时间 CURDATE ()">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2018/09/07/5b9286b906ff7.png">
-<meta property="og:updated_time" content="2018-09-13T15:56:30.766Z">
+<meta property="og:image" content="https://i.loli.net/2018/09/14/5b9afc6704f7f.png">
+<meta property="og:updated_time" content="2018-09-14T00:10:50.233Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode-48-旋转图像">
-<meta name="twitter:description" content="利用转置+反转来实现顺时针旋转功能，emmm真有趣">
-<meta name="twitter:image" content="https://i.loli.net/2018/09/07/5b9286b906ff7.png">
+<meta name="twitter:title" content="Leetcode-197-上升的温度">
+<meta name="twitter:description" content="解答： 123select a.Id from Weather a , Weather bwhere DATEDIFF(a.RecordDate, b.RecordDate) = 1 AND a.Temperature &amp;gt; b.Temperature 这一题主要考察了MySQL的高级内建函数： 简单总结一下MySQL Date函数 NOW() - 返回当前日期和时间 CURDATE ()">
+<meta name="twitter:image" content="https://i.loli.net/2018/09/14/5b9afc6704f7f.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/07/Leetcode-48-旋转图像/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/10/Leetcode-197-上升的温度/"/>
 
 
 
@@ -137,7 +137,7 @@
   };
 </script>
 
-  <title>Leetcode-48-旋转图像 | 枫</title>
+  <title>Leetcode-197-上升的温度 | 枫</title>
   
 
 
@@ -282,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/Leetcode-48-旋转图像/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/Leetcode-197-上升的温度/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -299,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode-48-旋转图像
+          <h1 class="post-title" itemprop="name headline">Leetcode-197-上升的温度
               
             
           </h1>
@@ -324,7 +324,7 @@
                 
               
 
-              <time title="创建时间：2018-09-07 20:26:04" itemprop="dateCreated datePublished" datetime="2018-09-07T20:26:04+08:00">2018-09-07</time>
+              <time title="创建时间：2018-09-10 08:07:31" itemprop="dateCreated datePublished" datetime="2018-09-10T08:07:31+08:00">2018-09-10</time>
             
 
             
@@ -383,19 +383,19 @@
       
 
       
-        <p>利用转置+反转来实现顺时针旋转功能，emmm真有趣</p>
-<a id="more"></a>
-<p><img src="https://i.loli.net/2018/09/07/5b9286b906ff7.png" alt=""></p>
-<h3 id="我的答案"><a href="#我的答案" class="headerlink" title="我的答案"></a>我的答案</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line"></span><br><span class="line">    def rotate(self, matrix):</span><br><span class="line"></span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">        :type matrix: List[List[int]]</span><br><span class="line"></span><br><span class="line">        :rtype: void Do not return anything, modify matrix in-place instead.</span><br><span class="line"></span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">        matrix[::] = zip(*matrix[::-1])</span><br></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h3><pre><code>这题主要有两种方法，一种是zip库的使用，另外一种就是寻找转换的规则。此处总结一下zip的使用，本题主要是用zip实现列表的转置，然后再对转置后的列表进行反转达到旋转效果。
-</code></pre><p>1.zip使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a= [1,2,3]</span><br><span class="line"></span><br><span class="line">b=[4,5,6]</span><br><span class="line"></span><br><span class="line">c=[7,8,9]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">zip(a,b,c) </span><br><span class="line"></span><br><span class="line">\# ([1,4,7],[2,5,8],[3,6,9])</span><br></pre></td></tr></table></figure>
-<p>zip()函数起一个打包的作用，按照其参数中最短的参数进行匹配</p>
-<p>详情可参考：<a href="http://www.runoob.com/python/python-func-zip.html" target="_blank" rel="noopener">http://www.runoob.com/python/python-func-zip.html</a></p>
-<p>2.利用切片赋值反转</p>
-<p>切片反转的使用很简单，list[::-1]，但是本题的要求是不产生额外的空间，因此就使用了切片赋值的概念来实现</p>
-<p>切片赋值与直接创建引用赋值不一样，切片赋值会赋值多一块内存地址，相当于较深拷贝（copy()）</p>
-<p>深拷贝（deepcopy）和较深拷贝(copy)最大的区别在于会不会把第二层可变对象中的内存地址拷贝过来。其中深拷贝会全部拷贝，但是较深拷贝不会</p>
+        <p><img src="https://i.loli.net/2018/09/14/5b9afc6704f7f.png" alt="img"></p>
+<p>解答：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select a.Id from Weather a , Weather b</span><br><span class="line"></span><br><span class="line">where DATEDIFF(a.RecordDate, b.RecordDate) = 1 AND a.Temperature &gt; b.Temperature</span><br></pre></td></tr></table></figure>
+<p>这一题主要考察了MySQL的高级内建函数：</p>
+<p>简单总结一下MySQL Date函数</p>
+<p>NOW() - 返回当前日期和时间</p>
+<p>CURDATE () - 返回当前日期</p>
+<p>CURETIME() -返回当前时间</p>
+<p>DATE() - 提取当前时间格式</p>
+<p>EXTRACT() - 返回日期/时间的单独部分</p>
+<p>DATE_ADD() - 给日期添加指定的时间间隔 </p>
+<p>DATE_SUB() -给日期减去指定的时间间隔</p>
+<p>DATEDIFF() - 返回两个日期之间的天数</p>
 
       
     </div>
@@ -423,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/10/Json转换工具展示/" rel="next" title="Json转换工具展示">
-                <i class="fa fa-chevron-left"></i> Json转换工具展示
+              <a href="/2018/09/08/Leetcode-28-实现strStr/" rel="next" title="Leetcode-28-实现strStr()">
+                <i class="fa fa-chevron-left"></i> Leetcode-28-实现strStr()
               </a>
             
           </div>
@@ -433,8 +433,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/08/Leetcode-28-实现strStr/" rel="prev" title="Leetcode-28-实现strStr()">
-                Leetcode-28-实现strStr() <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/13/Leetcode-121-买卖股票的最佳时机/" rel="prev" title="Leetcode-121-买卖股票的最佳时机">
+                Leetcode-121-买卖股票的最佳时机 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -484,17 +484,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -582,22 +573,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#我的答案"><span class="nav-number">1.</span> <span class="nav-text">我的答案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结:</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
