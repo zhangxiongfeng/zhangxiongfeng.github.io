@@ -386,20 +386,21 @@
 
       
         
-          
-            <p><img src="http://ww1.sinaimg.cn/mw690/6ab1ffc7gy1fvaj1v92uqj20iq08wq30.jpg" alt="img"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line"></span><br><span class="line">    def __init__(self, nums):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        self.original = nums</span><br><span class="line">        self.now = list(nums)</span><br><span class="line">        self.n = len(nums)</span><br><span class="line">        </span><br><span class="line">    def reset(self):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Resets the array to its original configuration and return it.</span><br><span class="line">        :rtype: List[int]</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        self.now = list(self.original)</span><br><span class="line">        return self.now</span><br><span class="line">        </span><br><span class="line">    def shuffle(self):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Returns a random shuffling of the array.</span><br><span class="line">        :rtype: List[int]</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        for i in range(self.n):</span><br><span class="line">            idx = random.randint(i,self.n-1)</span><br><span class="line">            self.now[i], self.now[idx] = self.now[idx], self.now[i]</span><br><span class="line"></span><br><span class="line">        return self.now</span><br></pre></td></tr></table></figure>
-<p>本题主要是实现相同概率打乱数组的算法， 其实在python中的random.shuffle()中就可以实现随机打乱数组的功能</p>
-<p>这里需要注意的是random库中每一个方法的取值范围有所区别</p>
-<p>random()  - 随机返回的是[0，1）的浮点数</p>
-<p>randint(1,10) -随机返回[1,10]之间的整数</p>
-<p>uniform(1,10) - 随机返回[1，10]之间的浮点数</p>
-<p>randrange(1, 100, 2) -随机返回[1, 100)之间的偶数</p>
-<p>choice(seq) - 随机返回seq中的一个元素</p>
-<p>shuffle(seq) - 随机打乱元seq的顺序</p>
-<p>sample(seq ，k) -随机在seq中选取k个元素，不改变原来seq的顺序 </p>
+          <p>打乱顺序的最好方法就是，random一个准备要交换的顺序编号，然后逐个进行交换。</p>
 
           
+          <div class="out-img-topic">
+            <img src=http://ww1.sinaimg.cn/thumbnail/6ab1ffc7gy1fvaj2udu8yj232w2b4u0y.jpg class="img-topic" />
+          </div>
+          
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/15/Leetcode-384-Shuffle-an-Array/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
