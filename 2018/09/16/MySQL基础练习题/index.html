@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="枫">
 <meta property="og:description" content="必须掌握的MySQL命令系列，无聊的时候多看看啊小兄弟">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-16T15:44:54.839Z">
+<meta property="og:updated_time" content="2018-09-16T15:46:05.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL基础练习题">
 <meta name="twitter:description" content="必须掌握的MySQL命令系列，无聊的时候多看看啊小兄弟">
@@ -377,7 +377,6 @@
         <p>必须掌握的MySQL命令系列，无聊的时候多看看啊小兄弟</p>
 <a id="more"></a>
 <p><strong>我使用的Mysql版本是5.7.19。答案可能会因版本会有少许出入</strong>。</p>
-<p>本文参考自：<a href="https://blog.csdn.net/flycat296/article/details/63681089" target="_blank" rel="noopener">https://blog.csdn.net/flycat296/article/details/63681089</a></p>
 <h2 id="练习数据"><a href="#练习数据" class="headerlink" title="练习数据"></a>练习数据</h2><p>数据表<br>–1.学生表<br>Student(SId,Sname,Sage,Ssex) </p>
 <p>–SId 学生编号,Sname 学生姓名,Sage 出生年月,Ssex 学生性别</p>
 <p>–2.课程表<br>Course(CId,Cname,TId)<br>–CId –课程编号,Cname 课程名称,TId 教师编号</p>
@@ -603,6 +602,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> student </span><br><span class="line"><span class="keyword">where</span> <span class="keyword">EXTRACT</span>(YEAR_MONTH <span class="keyword">FROM</span> student.Sage)=<span class="keyword">EXTRACT</span>(YEAR_MONTH <span class="keyword">FROM</span> <span class="keyword">CURDATE</span>())</span><br></pre></td></tr></table></figure>
 <p>45.查询下月过生日的学生</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> student </span><br><span class="line"><span class="keyword">where</span> <span class="keyword">EXTRACT</span>(YEAR_MONTH <span class="keyword">FROM</span> student.Sage)=<span class="keyword">EXTRACT</span>(YEAR_MONTH <span class="keyword">FROM</span> <span class="keyword">DATE_ADD</span>(<span class="keyword">CURDATE</span>(),<span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">MONTH</span>))</span><br></pre></td></tr></table></figure>
+<p>本文参考自：<a href="https://blog.csdn.net/flycat296/article/details/63681089" target="_blank" rel="noopener">https://blog.csdn.net/flycat296/article/details/63681089</a></p>
 
       
     </div>
